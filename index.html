@@ -1,76 +1,116 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Exploratory analysis and random forest</title>
   <meta charset="utf-8">
-  <meta name="description" content="Exploratory analysis and random forest">
-  <meta name="author" content="Hugo Andres Dorado">
-  <meta name="generator" content="slidify" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <link rel="stylesheet" href="C:/Program Files/R/R-3.1.2/library/slidifyLibraries/libraries/frameworks/io2012/css/default.css" media="all" >
-  <link rel="stylesheet" href="C:/Program Files/R/R-3.1.2/library/slidifyLibraries/libraries/frameworks/io2012/css/phone.css" 
-    media="only screen and (max-device-width: 480px)" >
-  <link rel="stylesheet" href="C:/Program Files/R/R-3.1.2/library/slidifyLibraries/libraries/frameworks/io2012/css/slidify.css" >
-  <link rel="stylesheet" href="C:/Program Files/R/R-3.1.2/library/slidifyLibraries/libraries/highlighters/highlight.js/css/tomorrow.css" />
-  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
-  
-  <!-- Grab CDN jQuery, fall back to local if offline -->
-  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
-  <script>window.jQuery || document.write('<script src="C:/Program Files/R/R-3.1.2/library/slidifyLibraries/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
-  <script data-main="C:/Program Files/R/R-3.1.2/library/slidifyLibraries/libraries/frameworks/io2012/js/slides" 
-    src="C:/Program Files/R/R-3.1.2/library/slidifyLibraries/libraries/frameworks/io2012/js/require-1.0.8.min.js">
-  </script>
-  
-  
-
+  <title>Slidify Playground2</title>
+  <meta name="description" content="">
+  <meta name="author" content="Ramnath Vaidyanathan">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/revealjs/css/theme/default.css" id="theme">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" id="theme">
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->  
 </head>
-<body style="opacity: 0">
-  <slides class="layout-widescreen">
-    
-    <!-- LOGO SLIDE -->
-        <slide class="title-slide segue nobackground">
-  <hgroup class="auto-fadein">
-    <h1>Exploratory analysis and random forest</h1>
-    <h2>A app to explore multivariate data</h2>
-    <p>Hugo Andres Dorado<br/>Assistant research</p>
-  </hgroup>
-  <article></article>  
-</slide>
-    
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class='' data-state='' id='slide-1'>
+  <h2>Normal Distribution</h2>
+  <p>The normal (or Gaussian) distribution is defined as follows:</p>
 
-    <!-- SLIDES -->
-    <slide class="" id="slide-1" style="background:;">
-  <article data-timings="">
-    <p>##Slide 2</p>
+<p>\[
+f(x;\mu,\sigma^2) = \frac{1}{\sigma\sqrt{2\pi}} 
+e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 }
+\]</p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+</section>
+<section class='' data-state='' id='slide-2'>
+  <h2>Density Plot</h2>
+  <p>To generate random draws from a normal distribution we use the <strong>rnorm</strong> function:</p>
 
-    <slide class="backdrop"></slide>
-  </slides>
-  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
-    <ul>
-      <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='NA'>
-         1
-      </a>
-    </li>
-  </ul>
-  </div>  <!--[if IE]>
-    <script 
-      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
-    </script>
-    <script>CFInstall.check({mode: 'overlay'});</script>
-  <![endif]-->
+<pre><code class="r">output &lt;- rnorm(1000, 100, 15);
+</code></pre>
+
+</section>
+<section class='' data-state='' id='slide-3'>
+  <h2>Bell Shape</h2>
+  <p>The normal distribution has the typical bell shape:</p>
+
+<pre><code class="r">library(ggplot2)
+qplot(output)
+</code></pre>
+
+<pre><code>## stat_bin: binwidth defaulted to range/30. Use &#39;binwidth = x&#39; to adjust this.
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk block2"></p>
+
+</section>
+<section class='' data-state='' id='slide-4'>
+  <h2>Kernel density estimation</h2>
+  <p>We can perform density estimation on the sample:</p>
+
+<pre><code class="r">plot(density(output))
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk block3"></p>
+
+</section>
+<section class='' data-state='' id='slide-5'>
+  <h2>Carl Friedrich Gauß</h2>
+  <p>This little guy had something to do with it</p>
+
+<p><img src="http://goo.gl/ZwTTXv" alt="&#39;Gauss&#39;"></p>
+
+</section>
+    </div>
+  </div>
 </body>
-  <!-- Load Javascripts for Widgets -->
-  
-  <!-- LOAD HIGHLIGHTER JS FILES -->
-  <script src="C:/Program Files/R/R-3.1.2/library/slidifyLibraries/libraries/highlighters/highlight.js/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
-   
-  </html>
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/revealjs/lib/js/head.min.js"></script>
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/revealjs/js/reveal.min.js"></script>
+  <script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    theme: Reveal.getQueryHash().theme || 'default', 
+    transition: Reveal.getQueryHash().transition || 'default', 
+    dependencies: [
+    // Cross-browser shim that fully implements classList -
+    // https://github.com/eligrey/classList.js/
+      { src: 'http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList;}},
+      // Zoom in and out with Alt+click
+      { src: 'http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Speaker notes
+      { src: 'http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Remote control your reveal.js presentation using a touch device
+      //{ src: 'http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+  });
+  </script>  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script> -->
+<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>

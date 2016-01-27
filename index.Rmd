@@ -1,13 +1,55 @@
 ---
-title       : Exploratory analysis and random forest
-subtitle    : A app to explore multivariate data
-author      : Hugo Andres Dorado
-job         : Assistant research
-framework   : io2012       #{io2012,html5slides, shower,dzslides,...}
-highlighter : highlight.js #{highlight.js,prettify,highlight}
-hitheme     : tomorrow     #
-widgets     : []           #{mathjax,quiz,boostrap}   
-mode        : selfcontained#
+title: Slidify Playground2
+subtitle: Adapted from OpenCPU MarkdownApp
+author: Ramnath Vaidyanathan
+framework: revealjs
+widgets: [mathjax]
 ---
+ 
+## Normal Distribution
+ 
+The normal (or Gaussian) distribution is defined as follows:
+ 
+$$latex
+f(x;\mu,\sigma^2) = \frac{1}{\sigma\sqrt{2\pi}} 
+e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 }
+$$
 
-##Slide 2
+---
+ 
+## Density Plot
+ 
+To generate random draws from a normal distribution we use the **rnorm** function:
+ 
+```{r block1}
+output <- rnorm(1000, 100, 15);
+```
+
+---
+ 
+## Bell Shape
+ 
+The normal distribution has the typical bell shape:
+ 
+```{r block2, fig.width=8, fig.height=5}
+library(ggplot2)
+qplot(output)
+```
+
+---
+ 
+## Kernel density estimation
+ 
+We can perform density estimation on the sample:
+ 
+```{r block3, fig.width=8, fig.height=5}
+plot(density(output))
+``` 
+
+---
+ 
+## Carl Friedrich Gauß
+ 
+This little guy had something to do with it
+ 
+!['Gauss'](http://goo.gl/ZwTTXv)
