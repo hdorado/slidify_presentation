@@ -2,3 +2,11 @@ base
 devtools
 slidify
 ggplot2
+mvtnorm
+modeltools
+zoo
+sandwich
+strucchange
+party
+shiny
+randomForest

@@ -1,66 +1,52 @@
 ---
-title: Slidify Playground2
+title: Exploratory analysis and variable importance for multivariate data
 subtitle: Adapted from OpenCPU MarkdownApp
-author: Ramnath Vaidyanathan
+author: Hugo Andres Dorado
 framework: revealjs
 widgets: [mathjax]
 ---
  
-## Normal Distribution
+## A app to explore data sets with quantitatives targets
  
-The normal (or Gaussian) distribution is defined as follows:
+The application give to the user a tool to identify the relevance of inputs features using the random forest model. Also is possible to explore the variables relations using scatter plots and box plot.
  
-$$latex
-f(x;\mu,\sigma^2) = \frac{1}{\sigma\sqrt{2\pi}} 
-e^{ -\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2 }
-$$
+
 
 ---
  
-## Density Plot
+## Select the toyset
  
-To generate random draws from a normal distribution we use the **rnorm** function:
+To start, is necessary choose the database.  There are three possibilities by default: 
  
+ 
+ * corn.db.csv
+ * longley.csv
+ * mtcasr.csv
+ 
+ 
+Immediately a database has been selected,  will appear a table with the data below. The function behind is `read.csv`. You can add your own data, only you should save your database in csv format inside to the folder app.
 
-```r
-output <- rnorm(1000, 100, 15);
-```
+ 
 
 ---
  
-## Bell Shape
+## Bivariate analysis
  
-The normal distribution has the typical bell shape:
+A scatter plot appear when there are two quantitative variable:
  
-
-```r
-library(ggplot2)
-qplot(output)
-```
-
-```
-## stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
-```
-
 ![plot of chunk block2](assets/fig/block2-1.png)
 
 ---
  
-## Kernel density estimation
+## Bivariate analysis
  
-We can perform density estimation on the sample:
+A box plot appear when there are one quantitative variable and a qualitative variable:
  
-
-```r
-plot(density(output))
-```
-
 ![plot of chunk block3](assets/fig/block3-1.png)
 
 ---
  
-## Carl Friedrich Gauß
+## Variable Importance Plot
  
-This little guy had something to do with it
- 
-!['Gauss'](http://goo.gl/ZwTTXv)
+You can see a top of relevance variables that explain the output
+![plot of chunk block4](assets/fig/block4-1.png)
