@@ -62,8 +62,9 @@ ggdescriptive(dataSet,"materialGenetico","RDT")
  
 ## Variable Importance Plot
  
-You can see a top of relevance variables that explain the output
-```{r block4, fig.width=7, fig.height=7.5,echo=FALSE}
+You can evaluate the top of relevance variables that explain the output.
+
+```{r block4, fig.width=6, fig.height=6.5,echo=FALSE}
 library(randomForest)
 library(ggplot2)
 dataSet <- read.csv("mtcasr.csv")

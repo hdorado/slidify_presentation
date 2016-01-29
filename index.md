@@ -48,5 +48,6 @@ A box plot appear when there are one quantitative variable and a qualitative var
  
 ## Variable Importance Plot
  
-You can see a top of relevance variables that explain the output
+You can evaluate the top of relevance variables that explain the output.
+
 ![plot of chunk block4](assets/fig/block4-1.png)
